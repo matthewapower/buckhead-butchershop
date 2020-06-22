@@ -14,7 +14,7 @@ const Header = () => {
     <>
       <header className="flex w-full justify-between items-center p-4 z-20 fixed">
         <Link to="/"><h2 className="font-display uppercase">s.o.s.</h2></Link>
-        <button onClick={() => setNavOpen(!navOpen)}>
+        <button onClick={() => setNavOpen(!navOpen)} className="md:hidden">
           <animated.svg viewBox="0 0 20 20" className="w-8">
             <animated.path d="M0 5 H20"
               stroke="black"
@@ -72,11 +72,12 @@ const Header = () => {
           </animated.svg>
         </button>
       </header>
-      <animated.nav style={animation} className="font-display uppercase fixed bg-primary inset-0 flex flex-col items-center justify-center z-10">
-        <ul>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
+      <animated.nav style={animation} className="font-display uppercase fixed bg-primary inset-0 flex flex-col items-center justify-center z-10 md:translate-x-0">
+        <ul className="text-center md:text-left">
+          <li><Link to="/about">Menu</Link></li>
+          <li><Link to="/about">Team</Link></li>
+          <li><Link to="/about">Location</Link></li>
+          <li><Link to="/about">About</Link></li>
         </ul>
       </animated.nav>
     </>

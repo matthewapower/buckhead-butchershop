@@ -19,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `buckhead-butcher-shop`,
+        short_name: `BBS`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -32,7 +32,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         typekit: {
-          id: 'fmy5kst'
+          id: 'zul1xdq'
         }
       }
     },

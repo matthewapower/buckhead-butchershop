@@ -3,10 +3,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'display': ['cooper-black-std', 'serif'],
+        'display': ['copperplate', 'serif'],
+        'sans': ['montserrat', 'sans-serif']
       },
       colors: {
-        primary: 'pink'
+        primary: '#FED43E',
+        secondary: '#0A0A0A'
       }
     },
   },

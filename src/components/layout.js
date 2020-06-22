@@ -27,8 +27,9 @@ const Layout = ({ children }) => {
     <div className="min-h-screen relative">
       <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
-      <footer className="text-center absolute inset-x-0 bottom-0 font-display">
-        © {new Date().getFullYear()}, Standard OS
+      <footer className="text-center absolute inset-x-0 bottom-0 font-display text-white">
+        © {new Date().getFullYear()} BUCKHEAD BUTCHER SHOP - ATLANTA, GA - 1451
+        PACES FERRY ROAD
       </footer>
     </div>
   )
