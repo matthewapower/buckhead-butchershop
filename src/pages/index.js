@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
@@ -6,9 +6,13 @@ import SEO from "../components/seo"
 import Form from "../components/form"
 import logo from "../images/bbs-logo.png"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
+import Glide from "react-glidejs"
+
+import "react-glidejs/dist/index.css"
 
 const IndexPage = ({ data }) => {
   const content = data.allContentfulHomePage.nodes[0]
+  const gliderRef = useRef(null)
   let parallax
   return (
     <Layout>
@@ -56,16 +60,26 @@ const IndexPage = ({ data }) => {
           className="flex items-center justify-center"
         >
           <section id="menu" className="bg-white">
-            <div className="grid w-full grid-cols-5 h-56 gap-4 container mx-auto">
+            <Glide
+              ref={gliderRef}
+              type="slider"
+              perView={5}
+              startAt={0}
+              focusAt="0"
+              bound={true}
+              className="container mx-auto"
+            >
               {content.sliderImages.map((s, i) => (
                 <div
                   key={i}
                   style={{
                     background: `url(${s.fluid.src}) center center/cover`,
+                    height: "400px",
                   }}
                 />
               ))}
-            </div>
+            </Glide>
+
             <div className="container mx-auto my-16 flex flex-col items-center justify-center text-black">
               <h2 className="text-center font-display text-4xl tracking-wider">
                 {content.sliderTitle}
