@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex w-full justify-end items-center p-4 z-20 fixed">
+      <header className="flex w-full md:w-auto justify-end items-center p-4 z-20 fixed md:absolute">
         <button onClick={() => setNavOpen(!navOpen)} className="md:hidden">
           <animated.svg viewBox="0 0 20 20" className="w-8">
             <animated.path
@@ -66,7 +66,7 @@ const Header = () => {
       </header>
       <animated.nav
         style={animation}
-        className="font-display uppercase fixed md:absolute bg-primary md:bg-transparent inset-0 md:top-0 md:left-0 flex md:block flex-col items-center justify-center z-10"
+        className="font-display uppercase fixed md:absolute bg-primary md:bg-transparent inset-0 md:top-0 md:left-0 md:right-auto md:bottom-auto flex md:block flex-col items-center justify-center z-10"
       >
         <ul className="text-center md:text-left md:text-white tracking-wider md:m-16">
           <li className="mb-6">

@@ -3,3 +3,9 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@responsive {
+  .min-h-screen-150 {
+    min-height: 150vh;
+  }
+}
