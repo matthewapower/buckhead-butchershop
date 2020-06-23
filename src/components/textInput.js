@@ -5,7 +5,7 @@ import { css } from "@emotion/core"
 export default function TextInput(props) {
   const [filled, setFilled] = useState(false)
   return (
-    <div className="border-primary border w-1/2 uppercase font-sans relative">
+    <div className="border-primary border uppercase font-sans relative">
       <label
         htmlFor={props.name}
         css={css`

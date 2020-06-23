@@ -41,6 +41,7 @@ export default function Form(props) {
       data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
       id="subscribe-form"
+      className="flex flex-col w-full"
     >
       <input type="hidden" name="form-name" value="subscribeForm" />
       <p hidden>
@@ -48,25 +49,30 @@ export default function Form(props) {
           Don’t fill this out: <input name="bot-field" />
         </label>
       </p>
-      <TextInput change={handleChange} name={"name"} type="text" />
-      <TextInput change={handleChange} name={"email"} type="email" />
-      <label htmlFor="newsletter">
+      <div className="grid grid-cols-2 gap-4 w-full mb-12">
+        <TextInput change={handleChange} name={"name"} type="text" />
+        <TextInput change={handleChange} name={"email"} type="email" />
+      </div>
+      <label htmlFor="newsletter" className="mb-2">
         <input
           type="checkbox"
           name="newsletter"
           id="newsletter"
           onChange={handleChange}
+          className="mr-4"
         />
         Please sign me up for Buckhead Butcher Shop’s monthly newsletter.
       </label>
-      <label htmlFor="promotions">
+      <label htmlFor="promotions" className="mb-8">
         <input
           type="checkbox"
           name="promotions"
           id="promotions"
+          className="mr-4"
           onChange={handleChange}
         />
-        Please sign me up for Buckhead Butcher Shop’s monthly newsletter.
+        Please sign me up for Buckhead Butcher Shop’s exclusive sales and
+        promotional notices.
       </label>
       <input
         type="submit"
