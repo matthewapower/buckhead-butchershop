@@ -5,6 +5,7 @@ import { css } from "@emotion/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Form from "../components/form"
+import Footer from "../components/footer"
 import logo from "../images/bbs-logo.png"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
 import Glide from "react-glidejs"
@@ -21,6 +22,7 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" />
       <Parallax pages={desktop ? 3 : 3.2} ref={ref => (parallax = ref)}>
         <div className="absolute inset-0 border border-primary m-1 md:m-4 z-10 pointer-events-none" />
+        <Footer />
         <ParallaxLayer
           offset={0}
           speed={0.5}

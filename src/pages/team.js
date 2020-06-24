@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 
 import Layout from "../components/layout"
+import Footer from "../components/footer"
 import SEO from "../components/seo"
 import logo from "../images/bbs-logo.png"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
@@ -21,6 +22,7 @@ const TeamPage = ({ data }) => {
         className="bg-secondary"
       >
         <div className="absolute inset-0 border border-primary m-1 md:m-4 z-10 pointer-events-none" />
+        <Footer />
         <ParallaxLayer offset={0.1} speed={1.5}>
           <img
             src={logo}
