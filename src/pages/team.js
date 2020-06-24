@@ -1,23 +1,29 @@
-import React from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { graphql } from "gatsby"
-import { css } from "@emotion/core"
 
 import Layout from "../components/layout"
 import Footer from "../components/footer"
 import SEO from "../components/seo"
 import logo from "../images/bbs-logo.png"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
+import useDimensions from "react-use-dimensions"
 
 const TeamPage = ({ data }) => {
   const content = data.contentfulTeamPage
+  const [pages, setPages] = useState(1)
+  const [teamRef, teamSize] = useDimensions()
   const desktop = typeof window !== "undefined" && window.innerWidth > 768
   let parallax
+
+  useLayoutEffect(() => {
+    setPages(Math.round((teamSize.height / window.innerHeight) * 10) / 10)
+  }, [teamSize])
 
   return (
     <Layout>
       <SEO title="Team" />
       <Parallax
-        pages={desktop ? 3 : 3.2}
+        pages={1 + pages}
         ref={ref => (parallax = ref)}
         className="bg-secondary"
       >
@@ -45,8 +51,11 @@ const TeamPage = ({ data }) => {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1} speed={0.8} factor={1}>
-          <div className="container mx-auto text-white px-4 grid gap-40">
+        <ParallaxLayer offset={1} speed={0.8}>
+          <div
+            ref={teamRef}
+            className="container mx-auto text-white px-4 grid gap-40"
+          >
             {content.teamSection.map((t, i) => {
               return (
                 <div key={i} className="grid md:grid-cols-2 gap-8">
