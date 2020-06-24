@@ -20,6 +20,7 @@ const TeamPage = ({ data }) => {
         ref={ref => (parallax = ref)}
         className="bg-secondary"
       >
+        <div className="absolute inset-0 border border-primary m-1 md:m-4 z-10 pointer-events-none" />
         <ParallaxLayer offset={0.1} speed={1.5}>
           <img
             src={logo}

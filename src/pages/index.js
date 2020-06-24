@@ -20,6 +20,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <Parallax pages={desktop ? 3 : 3.2} ref={ref => (parallax = ref)}>
+        <div className="absolute inset-0 border border-primary m-1 md:m-4 z-10 pointer-events-none" />
         <ParallaxLayer
           offset={0}
           speed={0.5}
