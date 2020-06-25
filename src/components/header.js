@@ -1,10 +1,10 @@
 import { Link, useStaticQuery, graphql } from "gatsby"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useSpring, animated } from "react-spring"
 
 const Header = () => {
   const [navOpen, setNavOpen] = useState(false)
-  const desktop = typeof window !== "undefined" && window.innerWidth > 768
+  const [desktop, setDesktop] = useState(null)
   const animation = useSpring({
     transform: navOpen || desktop ? "translateX(0)" : "translateX(-100%)",
     x: navOpen ? 100 : 0,
@@ -24,6 +24,31 @@ const Header = () => {
       }
     `
   )
+
+  useEffect(() => {
+    let resize = () => {
+      if (window.innerWidth < 768 && desktop) {
+        setNavOpen(false)
+        setDesktop(false)
+      } else if (window.innerWidth > 768 && desktop === false) {
+        setNavOpen(false)
+        setDesktop(true)
+      }
+    }
+    let resizeEvent = window.addEventListener("resize", () => {
+      resize()
+    })
+
+    if (desktop === null) {
+      setDesktop(typeof window !== "undefined" && window.innerWidth > 768)
+    }
+
+    resize()
+
+    return () => {
+      window.removeEventListener("resize", resizeEvent)
+    }
+  }, [desktop])
 
   return (
     <>
@@ -84,20 +109,20 @@ const Header = () => {
       >
         <ul className="text-center md:text-left md:text-white tracking-wider md:m-16">
           <li className="mb-6">
-            <Link to="/" className={`p-2 ${navOpen ? "" : "bg-black"}`}>
+            <Link to="/" className={`p-2 md:bg-black`}>
               Home
             </Link>
           </li>
           <li className="mb-6">
             <a
               href={contentfulHomePage.menu.file.url}
-              className={`p-2 ${navOpen ? "" : "bg-black"}`}
+              className={`p-2 md:bg-black`}
             >
               Menu
             </a>
           </li>
           <li className="mb-6">
-            <Link to="/team" className={`p-2 ${navOpen ? "" : "bg-black"}`}>
+            <Link to="/team" className={`p-2 md:bg-black`}>
               Team
             </Link>
           </li>
@@ -105,7 +130,7 @@ const Header = () => {
             <a
               href={contentfulHomePage.googleMapsLocation}
               target="_blank"
-              className={`p-2 ${navOpen ? "" : "bg-black"}`}
+              className={`p-2 md:bg-black`}
             >
               Location
             </a>
