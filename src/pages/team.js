@@ -21,7 +21,10 @@ const TeamPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Team" />
+      <SEO
+        title={content.seoTitle}
+        description={content.seoDescription.seoDescription}
+      />
       <Parallax
         pages={1 + pages}
         ref={ref => (parallax = ref)}
@@ -105,6 +108,10 @@ export const query = graphql`
             src
           }
         }
+      }
+      seoTitle
+      seoDescription {
+        seoDescription
       }
     }
   }

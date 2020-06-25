@@ -19,6 +19,7 @@ const Header = () => {
               url
             }
           }
+          googleMapsLocation
         }
       }
     `
@@ -102,7 +103,7 @@ const Header = () => {
           </li>
           <li className="mb-6">
             <a
-              href="https://maps.google.com"
+              href={contentfulHomePage.googleMapsLocation}
               target="_blank"
               className={`p-2 ${navOpen ? "" : "bg-black"}`}
             >

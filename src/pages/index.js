@@ -13,13 +13,16 @@ import Glide from "react-glidejs"
 import "react-glidejs/dist/index.css"
 
 const IndexPage = ({ data }) => {
-  const content = data.allContentfulHomePage.nodes[0]
+  const content = data.contentfulHomePage
   const gliderRef = useRef(null)
   const desktop = typeof window !== "undefined" && window.innerWidth > 768
   let parallax
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title={content.seoTitle}
+        description={content.seoDescription.seoDescription}
+      />
       <Parallax pages={desktop ? 3 : 3.2} ref={ref => (parallax = ref)}>
         <div className="absolute inset-0 border border-primary m-1 md:m-4 z-10 pointer-events-none" />
         <Footer />
@@ -135,47 +138,49 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query HomeQuery {
-    allContentfulHomePage(limit: 1) {
-      nodes {
-        mainBackground {
-          fluid {
-            src
-          }
+    contentfulHomePage(id: { eq: "82344217-8cbf-536d-a1bd-b50288c7d4f4" }) {
+      mainBackground {
+        fluid {
+          src
         }
-        heroTitle
-        heroParagraph {
-          internal {
-            content
-          }
+      }
+      heroTitle
+      heroParagraph {
+        internal {
+          content
         }
-        sliderImages {
-          fluid {
-            src
-          }
+      }
+      sliderImages {
+        fluid {
+          src
         }
-        sliderTitle
-        sliderDescription {
-          sliderDescription
+      }
+      sliderTitle
+      sliderDescription {
+        sliderDescription
+      }
+      menu {
+        file {
+          url
         }
-        menu {
-          file {
-            url
-          }
+      }
+      contactTitle
+      contactDescription {
+        contactDescription
+      }
+      contactBackground {
+        fluid {
+          src
         }
-        contactTitle
-        contactDescription {
-          contactDescription
+      }
+      contactAccentImage {
+        fluid {
+          src
         }
-        contactBackground {
-          fluid {
-            src
-          }
-        }
-        contactAccentImage {
-          fluid {
-            src
-          }
-        }
+      }
+      seoTitle
+      seoDescription {
+        seoDescription
       }
     }
   }
