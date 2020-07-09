@@ -140,7 +140,7 @@ export const query = graphql`
   query HomeQuery {
     contentfulHomePage(id: { eq: "82344217-8cbf-536d-a1bd-b50288c7d4f4" }) {
       mainBackground {
-        fluid {
+        fluid(maxWidth: 4000, quality: 100) {
           src
         }
       }
@@ -151,7 +151,7 @@ export const query = graphql`
         }
       }
       sliderImages {
-        fluid {
+        fluid(maxWidth: 500, quality: 100) {
           src
         }
       }
@@ -169,12 +169,12 @@ export const query = graphql`
         contactDescription
       }
       contactBackground {
-        fluid {
+        fluid(maxWidth: 4000, quality: 100) {
           src
         }
       }
       contactAccentImage {
-        fluid {
+        fluid(maxWidth: 500, quality: 100) {
           src
         }
       }
