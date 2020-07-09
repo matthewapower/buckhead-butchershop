@@ -17,6 +17,7 @@ export default function Form(props) {
 
   const handleSubmit = e => {
     const form = e.target
+    console.log("starting the submit")
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -24,8 +25,11 @@ export default function Form(props) {
         "form-name": form.getAttribute("name"),
         ...submission,
       }),
-    }).catch(error => alert(error))
+    })
+      .then(() => console.log("halfway through"))
+      .catch(error => alert(error))
     e.preventDefault()
+    console.log("ending the submit")
   }
 
   return (
@@ -70,11 +74,9 @@ export default function Form(props) {
         Please sign me up for Buckhead Butcher Shop’s exclusive sales and
         promotional notices.
       </label>
-      <input
-        type="submit"
-        value="Submit"
-        className="font-display uppercase bg-secondary text-white mx-auto inline-block py-2 px-12"
-      />
+      <button className="font-display uppercase bg-secondary text-white mx-auto inline-block py-2 px-12">
+        Submit
+      </button>
     </form>
   )
 }

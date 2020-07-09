@@ -99,12 +99,16 @@ const IndexPage = ({ data }) => {
             <p className="w-full max-w-3xl mx-auto font-sans">
               {content.sliderDescription.sliderDescription}
             </p>
-            <a
-              href={content.menu.file.url}
-              className="font-display uppercase bg-secondary text-white mx-auto py-2 px-12"
-            >
-              View Our Menu
-            </a>
+            {content.menu.file ? (
+              <a
+                href={content.menu.file.url}
+                className="font-display uppercase bg-secondary text-white mx-auto py-2 px-12"
+              >
+                View Our Menu
+              </a>
+            ) : (
+              ""
+            )}
           </div>
         </ParallaxLayer>
         <ParallaxLayer

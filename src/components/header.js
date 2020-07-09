@@ -113,14 +113,18 @@ const Header = () => {
               Home
             </Link>
           </li>
-          <li className="mb-6">
-            <a
-              href={contentfulHomePage.menu.file.url}
-              className={`p-2 md:bg-black`}
-            >
-              Menu
-            </a>
-          </li>
+          {contentfulHomePage.menu.file ? (
+            <li className="mb-6">
+              <a
+                href={contentfulHomePage.menu.file.url}
+                className={`p-2 md:bg-black`}
+              >
+                Menu
+              </a>
+            </li>
+          ) : (
+            ""
+          )}
           <li className="mb-6">
             <Link to="/team" className={`p-2 md:bg-black`}>
               Team
