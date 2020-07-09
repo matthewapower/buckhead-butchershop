@@ -16,7 +16,12 @@ const TeamPage = ({ data }) => {
   let parallax
 
   useLayoutEffect(() => {
-    setPages(Math.round((teamSize.height / window.innerHeight) * 10) / 10)
+    let teams = Math.round((teamSize.height / window.innerHeight) * 10) / 10
+    if (desktop) {
+      setPages(teams)
+    } else {
+      setPages(teams + 0.5)
+    }
   }, [teamSize])
 
   return (
@@ -26,7 +31,7 @@ const TeamPage = ({ data }) => {
         description={content.seoDescription.seoDescription}
       />
       <Parallax
-        pages={1 + pages}
+        pages={pages ? pages : 1}
         ref={ref => (parallax = ref)}
         className="bg-secondary"
       >
@@ -65,8 +70,9 @@ const TeamPage = ({ data }) => {
                   <div
                     style={{
                       background: `url(${t.headshot.fluid.src}) center center/cover`,
+                      minHeight: "50vh",
                     }}
-                    className="h-64 md:h-full mb-10 md:mb-0 md:mr-20 relative"
+                    className="h-64 mb-10 md:mb-0 md:mr-20 relative"
                   >
                     <span className="bg-primary hidden md:block md:w-px absolute bottom-0 inset-y-0 right-0 -mr-10" />
                   </div>
@@ -104,7 +110,7 @@ export const query = graphql`
           bio
         }
         headshot {
-          fluid {
+          fluid(maxWidth: 1000, quality: 100) {
             src
           }
         }
