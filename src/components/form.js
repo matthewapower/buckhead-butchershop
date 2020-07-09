@@ -13,11 +13,9 @@ export default function Form(props) {
 
   const handleChange = e => {
     setSubmission({ ...submission, [e.target.name]: e.target.value })
-    console.log(submission)
   }
 
   const handleSubmit = e => {
-    e.preventDefault()
     const form = e.target
     fetch("/", {
       method: "POST",
@@ -26,14 +24,12 @@ export default function Form(props) {
         "form-name": form.getAttribute("name"),
         ...submission,
       }),
-    })
-      .then(() => props.close())
-      .catch(error => alert(error))
+    }).catch(error => alert(error))
+    e.preventDefault()
   }
 
   return (
     <form
-      action="#"
       name="subscribeForm"
       method="post"
       action="/success"
