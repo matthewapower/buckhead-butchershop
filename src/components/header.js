@@ -139,6 +139,11 @@ const Header = () => {
               Location
             </a>
           </li>
+          <li className="mb-6">
+            <Link to="/contact" className={`p-2 md:bg-black`}>
+              Contact
+            </Link>
+          </li>
         </ul>
       </animated.nav>
     </>

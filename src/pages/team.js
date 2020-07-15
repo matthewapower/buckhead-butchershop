@@ -20,7 +20,7 @@ const TeamPage = ({ data }) => {
     if (desktop) {
       setPages(teams)
     } else {
-      setPages(teams + 0.5)
+      setPages(teams)
     }
   }, [teamSize])
 
@@ -30,67 +30,61 @@ const TeamPage = ({ data }) => {
         title={content.seoTitle}
         description={content.seoDescription.seoDescription}
       />
-      <Parallax
+      <section
         pages={pages ? pages : 1}
         ref={ref => (parallax = ref)}
         className="bg-secondary"
       >
         <div className="absolute inset-0 border border-primary m-1 md:m-4 z-10 pointer-events-none" />
         <Footer />
-        <ParallaxLayer offset={0.1} speed={1.5}>
-          <img
-            src={logo}
-            alt="Buckhead Butcher Shop"
-            className="mx-auto w-64 md:w-full md:max-w-sm"
-          />
-        </ParallaxLayer>
+        <img
+          src={logo}
+          alt="Buckhead Butcher Shop"
+          className="mx-auto w-64 md:w-full md:max-w-sm"
+        />
 
-        <ParallaxLayer offset={0.7} speed={0.6} factor={0.5}>
-          <div className="bg-secondary text-white text-center max-w-4xl py-12 px-4 md:p-12 mx-auto">
-            <h1 className="font-display text-2xl md:text-4xl tracking-wider leading-normal">
-              {content.h1}
-            </h1>
-            <p className="font-sans text-base md:text-lg">
-              {content.description.description}
-            </p>
-            <h2 className="font-display text-2xl tracking-wider leading-normal">
-              {content.h2}
-            </h2>
-          </div>
-        </ParallaxLayer>
+        <div className="bg-secondary text-white text-center max-w-4xl py-12 px-4 md:p-12 mx-auto">
+          <h1 className="font-display text-2xl md:text-4xl tracking-wider leading-normal">
+            {content.h1}
+          </h1>
+          <p className="font-sans text-base md:text-lg">
+            {content.description.description}
+          </p>
+          <h2 className="font-display text-2xl tracking-wider leading-normal">
+            {content.h2}
+          </h2>
+        </div>
 
-        <ParallaxLayer offset={1} speed={0.8}>
-          <div
-            ref={teamRef}
-            className="container mx-auto text-white px-4 grid gap-40"
-          >
-            {content.teamSection.map((t, i) => {
-              return (
-                <div key={i} className="grid md:grid-cols-2 gap-8">
-                  <div
-                    style={{
-                      background: `url(${t.headshot.fluid.src}) center center/cover`,
-                      minHeight: "50vh",
-                    }}
-                    className="h-64 mb-10 md:mb-0 md:mr-20 relative"
-                  >
-                    <span className="bg-primary hidden md:block md:w-px absolute bottom-0 inset-y-0 right-0 -mr-10" />
-                  </div>
-                  <div className="md:pb-20">
-                    <h2 className="font-display uppercase tracking-wider border-b border-primary pb-4">
-                      {t.name}
-                    </h2>
-                    <h3 className="font-display uppercase tracking-wider">
-                      {t.jobTitle}
-                    </h3>
-                    <p className="font-sans">{t.bio.bio}</p>
-                  </div>
+        <div
+          ref={teamRef}
+          className="container mx-auto text-white px-4 grid gap-40"
+        >
+          {content.teamSection.map((t, i) => {
+            return (
+              <div key={i} className="grid md:grid-cols-2 gap-8">
+                <div
+                  style={{
+                    background: `url(${t.headshot.fluid.src}) center center/cover`,
+                    paddingBottom: "50%",
+                  }}
+                  className="mb-4 md:mb-0 md:mr-20 relative w-1/2 self-start md:ml-auto"
+                >
+                  <span className="bg-primary hidden md:block md:w-px absolute bottom-0 inset-y-0 right-0 -mr-10" />
                 </div>
-              )
-            })}
-          </div>
-        </ParallaxLayer>
-      </Parallax>
+                <div className="md:pb-20">
+                  <h2 className="font-display uppercase tracking-wider border-b border-primary pb-4">
+                    {t.name}
+                  </h2>
+                  <h3 className="font-display uppercase tracking-wider">
+                    {t.jobTitle}
+                  </h3>
+                  <p className="font-sans">{t.bio.bio}</p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
     </Layout>
   )
 }

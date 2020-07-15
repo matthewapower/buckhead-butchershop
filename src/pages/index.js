@@ -31,9 +31,10 @@ const IndexPage = ({ data }) => {
           speed={0.5}
           factor={1.2}
           style={{
+            backgroundColor: "black",
             background: `url(${content.mainBackground.fluid.src}) center center/cover`,
           }}
-          className="pt-16 h-full"
+          className="pt-16 h-full bg-black"
         ></ParallaxLayer>
         <ParallaxLayer offset={0.1} speed={1.5}>
           <img
@@ -45,7 +46,7 @@ const IndexPage = ({ data }) => {
 
         <ParallaxLayer offset={0.9} speed={1} factor={0.5}>
           <section>
-            <div className="bg-secondary text-white text-center md: text-left max-w-4xl py-12 px-4 md:p-12">
+            <div className="bg-secondary text-white text-center mx-auto max-w-4xl py-12 px-4 md:p-12">
               <h1 className="font-display text-2xl md:text-4xl tracking-wider leading-normal">
                 {content.heroTitle}
               </h1>
@@ -155,7 +156,7 @@ export const query = graphql`
         }
       }
       sliderImages {
-        fluid(maxWidth: 500, quality: 100) {
+        fluid(maxWidth: 800, quality: 100) {
           src
         }
       }
