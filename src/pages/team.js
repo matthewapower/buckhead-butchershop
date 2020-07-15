@@ -1,12 +1,10 @@
-import React, { useState, useLayoutEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Footer from "../components/footer"
 import SEO from "../components/seo"
 import logo from "../images/bbs-logo.png"
-import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
-import useDimensions from "react-use-dimensions"
 
 const TeamPage = ({ data }) => {
   const content = data.contentfulTeamPage
