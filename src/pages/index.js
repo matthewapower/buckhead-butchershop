@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
         title={content.seoTitle}
         description={content.seoDescription.seoDescription}
       />
-      <Parallax pages={desktop ? 3 : 3.2} ref={ref => (parallax = ref)}>
+      <Parallax pages={desktop ? 3 : 2.9} ref={ref => (parallax = ref)}>
         <div className="absolute inset-0 border border-primary m-1 md:m-4 z-10 pointer-events-none" />
         <Footer />
         <ParallaxLayer
@@ -59,7 +59,7 @@ const IndexPage = ({ data }) => {
         <ParallaxLayer
           offset={1}
           speed={desktop ? 0.5 : 0.8}
-          factor={desktop ? 1 : 1.5}
+          factor={desktop ? 1 : 1.3}
           className="flex flex-col items-center justify-center bg-white pt-20 max-w-full"
         >
           <Glide
@@ -114,8 +114,8 @@ const IndexPage = ({ data }) => {
         </ParallaxLayer>
         <ParallaxLayer
           offset={2}
-          speed={desktop ? 0.3 : 0.5}
-          factor={desktop ? 1 : 1.3}
+          speed={desktop ? 0.3 : 0.4}
+          factor={desktop ? 1 : 0.9}
           className="py-20 flex items-center justify-center"
           style={{
             background: `url(${content.contactBackground.fluid.src}) center center/cover`,

@@ -45,18 +45,20 @@ const TeamPage = ({ data }) => {
                     background: `url(${t.headshot.fluid.src}) center center/cover`,
                     paddingBottom: "50%",
                   }}
-                  className="mb-4 md:mb-0 md:mr-20 relative w-1/2 self-start md:ml-auto"
+                  className="mb-4 md:mb-0 mx-auto md:mr-20 relative w-1/2 self-start md:ml-auto"
                 >
                   <span className="bg-primary hidden md:block md:w-px absolute bottom-0 inset-y-0 right-0 -mr-10" />
                 </div>
                 <div>
-                  <h2 className="font-display uppercase tracking-wider border-b border-primary pb-4">
+                  <h2 className="text-center md:text-left font-display uppercase tracking-wider border-b border-primary pb-4">
                     {t.name}
                   </h2>
-                  <h3 className="font-display uppercase tracking-wider">
+                  <h3 className="text-center md:text-left font-display uppercase tracking-wider">
                     {t.jobTitle}
                   </h3>
-                  <p className="font-sans">{t.bio.bio}</p>
+                  <p className="text-center md:text-left font-sans">
+                    {t.bio.bio}
+                  </p>
                 </div>
               </div>
             )
