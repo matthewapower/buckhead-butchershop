@@ -97,7 +97,7 @@ const IndexPage = ({ data }) => {
             <h2 className="text-center font-display text-2xl md:text-4xl leading-relaxed tracking-wider">
               {content.sliderTitle}
             </h2>
-            <p className="w-full max-w-3xl mx-auto font-sans">
+            <p className="text-center w-full max-w-3xl mx-auto font-sans">
               {content.sliderDescription.sliderDescription}
             </p>
             {content.menu.file ? (
