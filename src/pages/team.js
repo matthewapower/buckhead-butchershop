@@ -10,19 +10,6 @@ import useDimensions from "react-use-dimensions"
 
 const TeamPage = ({ data }) => {
   const content = data.contentfulTeamPage
-  const [pages, setPages] = useState(1)
-  const [teamRef, teamSize] = useDimensions()
-  const desktop = typeof window !== "undefined" && window.innerWidth > 768
-  let parallax
-
-  useLayoutEffect(() => {
-    let teams = Math.round((teamSize.height / window.innerHeight) * 10) / 10
-    if (desktop) {
-      setPages(teams)
-    } else {
-      setPages(teams)
-    }
-  }, [teamSize])
 
   return (
     <Layout>
@@ -30,11 +17,7 @@ const TeamPage = ({ data }) => {
         title={content.seoTitle}
         description={content.seoDescription.seoDescription}
       />
-      <section
-        pages={pages ? pages : 1}
-        ref={ref => (parallax = ref)}
-        className="bg-secondary"
-      >
+      <section className="bg-secondary py-32">
         <div className="absolute inset-0 border border-primary m-1 md:m-4 z-10 pointer-events-none" />
         <Footer />
         <img
@@ -43,7 +26,7 @@ const TeamPage = ({ data }) => {
           className="mx-auto w-64 md:w-full md:max-w-sm"
         />
 
-        <div className="bg-secondary text-white text-center max-w-4xl py-12 px-4 md:p-12 mx-auto">
+        <div className="bg-secondary text-white text-center max-w-4xl py-12 px-4 md:p-12 mx-auto mb-24">
           <h1 className="font-display text-2xl md:text-4xl tracking-wider leading-normal">
             {content.h1}
           </h1>
@@ -55,10 +38,7 @@ const TeamPage = ({ data }) => {
           </h2>
         </div>
 
-        <div
-          ref={teamRef}
-          className="container mx-auto text-white px-4 grid gap-40"
-        >
+        <div className="container mx-auto text-white px-4 grid gap-24">
           {content.teamSection.map((t, i) => {
             return (
               <div key={i} className="grid md:grid-cols-2 gap-8">
@@ -71,7 +51,7 @@ const TeamPage = ({ data }) => {
                 >
                   <span className="bg-primary hidden md:block md:w-px absolute bottom-0 inset-y-0 right-0 -mr-10" />
                 </div>
-                <div className="md:pb-20">
+                <div>
                   <h2 className="font-display uppercase tracking-wider border-b border-primary pb-4">
                     {t.name}
                   </h2>

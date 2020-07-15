@@ -12,7 +12,7 @@ const Contact = ({ data }) => {
   const contact = data.contentfulContactPage
 
   const Heading = tw.h2`font-display uppercase tracking-wider text-2xl md:text-4xl border-b border-primary inline-block pb-4`
-  const Sub = tw.p`uppercase mb-16 text-xl md:text-3xl max-w-sm mx-auto leading-normal`
+  const Sub = tw.p`uppercase mb-16 text-xl md:text-3xl px-20 md:px-0 md:max-w-sm mx-auto leading-normal`
 
   return (
     <Layout>
@@ -24,7 +24,7 @@ const Contact = ({ data }) => {
         <img
           src={logo}
           alt="Buckhead Butcher Shop"
-          className="mx-auto max-w-sm mb-24"
+          className="mx-auto max-w-sm mb-24 w-2/3"
         />
         <Heading>Address</Heading>
         <Sub>{contact.address.address}</Sub>
@@ -125,7 +125,7 @@ const Contact = ({ data }) => {
           </li>
         </ul>
         <Heading css={tw`border-b-0`}>{contact.ctaTitle}</Heading>
-        <p className="max-w-screen-lg mx-auto mb-12 uppercase">
+        <p className="max-w-screen-lg mx-auto mb-12 uppercase px-12">
           {contact.ctaBody.ctaBody}
         </p>
         <a
